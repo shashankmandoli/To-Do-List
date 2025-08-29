@@ -1,6 +1,17 @@
+function showToast(message) {
+  let toast = document.getElementById("toast");
+  toast.innerText = message;
+  toast.className = "show";
+
+  setTimeout(function(){
+    toast.className = toast.className.replace("show", "");
+  }, 3000); // Hide after 3 seconds
+}
+
+
 document.querySelector('#push').onclick = function(){
     if(document.querySelector('#newtask input').value.length == 0){
-        alert("Please Enter a Task");
+        showToast("⚠️ Please Enter a Task");
     }
     else{
         // Add a task into the list
